@@ -4,7 +4,7 @@
   "description": "A miniprogram about education which stack is Taro",
   "appid": "wxcedbff30aa84c1ae",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": false,
     "postcss": false,
