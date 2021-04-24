@@ -4,23 +4,8 @@ import { Swiper, SwiperItem } from '@tarojs/components'
 import { FC } from '@tarojs/taro'
 import { memo } from 'react'
 
+import { SwiperProps } from './type'
 import './index.less'
-
-type SwiperItemType = {
-  imgUrl: string
-  url?: string
-}
-
-interface SwiperProps {
-  className?: string
-  style?: React.CSSProperties
-  circular?: boolean
-  autoplay?: boolean
-  indicatorDots?: boolean
-  indicatorColor?: string
-  indicatorActiveColor?: string
-  items: SwiperItemType[]
-}
 
 const IndexSwiper: FC<SwiperProps> = memo(({
   className,
