@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '首页'
+  navigationBarTitleText: '邮小程学生成长指南'
 }

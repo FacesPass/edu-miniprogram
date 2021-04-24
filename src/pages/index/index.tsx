@@ -3,21 +3,10 @@ import { View, Text } from '@tarojs/components'
 import './index.less'
 
 export default class Index extends Component {
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
+  render() {
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <Text>哈哈哈哈哈</Text>
       </View>
     )
   }
