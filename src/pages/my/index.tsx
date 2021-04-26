@@ -1,8 +1,21 @@
 import { View } from '@tarojs/components'
-import { FC } from '@tarojs/taro'
-import React, { memo } from 'react'
+import Taro, { FC, useReady } from '@tarojs/taro'
+import React, { memo, useEffect } from 'react'
 
 const My: FC = memo(() => {
+
+  useEffect(() => {
+    handleLogin()
+  })
+
+  const handleLogin = async () => {
+    try {
+      const res = await Taro.login()
+      console.log(res.code)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <View>
