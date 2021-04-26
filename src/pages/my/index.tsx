@@ -10,8 +10,14 @@ const My: FC = memo(() => {
 
   const handleLogin = async () => {
     try {
-      const res = await Taro.login()
-      console.log(res.code)
+      // const res = await Taro.login()
+      // if (res.code) {
+      //   const successRes = await Taro.request({ url: '', data: { code: res.code } })
+      //   console.log(successRes)
+      // }
+
+      const userRes = await Taro.getUserProfile({ desc: '获取信息提供更好体验' })
+      console.log(userRes)
     } catch (e) {
       console.log(e)
     }
