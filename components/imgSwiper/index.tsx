@@ -1,8 +1,7 @@
-import React from 'react'
-import { Image, View } from '@tarojs/components'
+import { Image } from '@tarojs/components'
 import { Swiper, SwiperItem } from '@tarojs/components'
 import { FC } from '@tarojs/taro'
-import { memo } from 'react'
+import React, { memo } from 'react'
 
 import { SwiperProps } from './type'
 import './index.less'
@@ -15,10 +14,16 @@ const IndexSwiper: FC<SwiperProps> = memo(({
   indicatorColor,
   indicatorActiveColor,
   indicatorDots,
-  items }) => {
+  items,
+  onClick
+}) => {
 
   if (!items.length) {
     throw new Error('不能传入一个空的swiperItem数组')
+  }
+
+  const handleClick = (url: string) => {
+    onClick && onClick(url)
   }
 
   return (
@@ -33,7 +38,7 @@ const IndexSwiper: FC<SwiperProps> = memo(({
       {
         items.map((item, index) => {
           return (
-            <SwiperItem key={index}>
+            <SwiperItem key={index} onClick={e => handleClick(item.url as string)}>
               <Image className="swiper-img" src={item.imgUrl}></Image>
             </SwiperItem>
           )
@@ -48,8 +53,8 @@ IndexSwiper.defaultProps = {
   circular: true,
   indicatorDots: true,
   autoplay: true,
-  indicatorColor: '#fff',
-  indicatorActiveColor: '#c2c2c2'
+  indicatorColor: '#c2c2c2',
+  indicatorActiveColor: '#fff'
 }
 
 export default IndexSwiper
