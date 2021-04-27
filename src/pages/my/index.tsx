@@ -1,20 +1,33 @@
-import { View, Image, Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { View, Image, Button, Text } from '@tarojs/components'
+import Taro, { useDidHide, useDidShow } from '@tarojs/taro'
 import React, { memo, useEffect, useState } from 'react'
 import Grid from '@/components/grid'
 
 import { Login } from '@/service/api'
 
+import { UsefInfo } from './type'
 import './style.less'
 
-import chilun from '@/assets/icon/齿轮.png'
+import chilun from '@/assets/icon/chilun.png'
+import robot from '@/assets/icon/robot.png'
+import classNames from 'classnames'
 
 
 const My = memo(() => {
 
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState('')
+  const [userInfo, setUserInfo] = useState<UsefInfo>()
 
   useEffect(() => {
+    Taro.getStorage({
+      key: 'userInfo',
+      success: res => {
+        setUserInfo(res.data)
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
     handleGetCode()
   }, [])
 
@@ -40,10 +53,10 @@ const My = memo(() => {
       const settingRes = await Taro.getSetting()
       if (settingRes.authSetting['scope.userInfo']) {
         const userRes = await Taro.getUserProfile({ desc: '获取信息提供更好体验' })
-        console.log(userRes)
+        setUserInfo(userRes.userInfo)
+        Taro.setStorage({ key: 'userInfo', data: userRes.userInfo })
       }
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e)
     }
   }
@@ -53,9 +66,17 @@ const My = memo(() => {
 
       <View className="user-info">
         <View className="avatar">
-          <Image src={chilun} />
+          {
+            userInfo?.avatarUrl ? <Image src={userInfo.avatarUrl} /> : <Image src={robot} />
+          }
         </View>
-        <Button className="login-btn">点击登录</Button>
+        {userInfo?.nickName ? <View className="nickname">{userInfo.nickName}</View> : <Button className="login-btn" onClick={handleGetUserInfo}>点击登录</Button>}
+      </View>
+
+      <View className="func">
+        <View className="favorite favorite-item-move">收藏</View>
+        <View className="rank rank-item-move">排行</View>
+        <View className="feetback feetback-item-move">反馈</View>
       </View>
 
       <Image className="chilun" src={chilun} />
@@ -63,12 +84,12 @@ const My = memo(() => {
 
       <View className="grid-position">
         <Grid purpleCount={1} className="purple-1" />
-        <Grid purpleCount={3} className="purple-3" />
+        <Grid purpleCount={2} className="purple-2" />
         <Grid greenCount={2} className="green-2" />
         <Grid greenCount={1} className="green-1" />
-        <Grid oneByOne totalCount={2} className="total-2" />
+        <Grid orangeCount={1} className="orange-1" />
       </View>
-    </View>
+    </View >
   )
 })
 

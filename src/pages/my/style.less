@@ -11,34 +11,129 @@
     top: @gridHeight;
     transform: translateX(-50%);
 
+
     .avatar {
       position: relative;
-      width: @gridWidth * 5;
-      height: @gridHeight * 5;
-      border: 1px solid #ccc;
+      width: @gridWidth * 8;
+      height: @gridHeight * 8;
       border-radius: @border-circle;
 
       image {
         position: absolute;
-        width: @gridWidth * 4;
-        height: @gridHeight * 4;
+        width: @gridWidth * 6;
+        height: @gridHeight * 6;
+        border-radius: @border-circle;
         .center-position()
       }
     }
 
+    .nickname {
+      width: 100%;
+      color: @white;
+      text-align: center;
+    }
+
     .login-btn {
       font-size: 28px;
-      width: @gridWidth * 5;
-      height: @gridHeight * 2;
+      color: @white;
+      width: @gridWidth * 7;
+      height: @gridHeight * 3;
+      background: linear-gradient(to right top, #ccc, @dark-theme);
+    }
+  }
+
+  .func {
+    position: absolute;
+    top: 56%;
+    right: 0;
+    width: 350px;
+    height: 350px;
+    color: @white;
+    font-size: 36px;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .item-size {
+      @height: 80px;
+      @border-radius: 60px;
+      width: 350px;
+      height: @height;
+      line-height: @height;
+      padding-left: 40px;
+      border-top-left-radius: @border-radius;
+      border-bottom-left-radius: @border-radius;
+    }
+
+    .favorite {
+      .item-size();
+      background-color: @green-color;
+      border: 2px solid #97f36c;
+    }
+
+    .rank {
+      .item-size();
+      background-color: @purple-color;
+      border: 2px solid #e17ef0;
+    }
+
+    .feetback {
+      .item-size();
+      background-color: @orange-color;
+      border: 2px solid #ecd2ae;
+    }
+
+    .favorite-item-move {
+      animation: favoItemMove 1s ease;
+    }
+
+    .rank-item-move {
+      animation: rankItemMove 1.5s ease;
+    }
+
+    .feetback-item-move {
+      animation: feetbackItemMove 2s ease;
+    }
+
+    @keyframes favoItemMove {
+      0% {
+        transform: translateX(220px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes rankItemMove {
+      0% {
+        transform: translateX(220px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes feetbackItemMove {
+      0% {
+        transform: translateX(220px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
     }
   }
 
   .chilun {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 0;
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
 
     animation: rotation infinite 10s linear;
   }
@@ -60,7 +155,7 @@
       top: @gridHeight * 4;
     }
 
-    .purple-3 {
+    .purple-2 {
       position: absolute;
       top: @gridHeight * 10;
       right: @gridWidth * 5;
@@ -78,10 +173,10 @@
       left: @gridWidth * 4;
     }
 
-    .total-2 {
+    .orange-1 {
       position: absolute;
-      bottom: @gridHeight * 5;
-      right: @gridWidth * 4;
+      bottom: @gridHeight * 6;
+      right: @gridWidth * 2;
     }
   }
 }

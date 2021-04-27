@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "edu-miniprogram",
   "description": "A miniprogram about education which stack is Taro",
-  "appid": "wxcedbff30aa84c1ae",
+  "appid": "wx41abb5888c4a8b9b",
   "setting": {
     "urlCheck": false,
     "es6": false,
@@ -23,7 +23,7 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],

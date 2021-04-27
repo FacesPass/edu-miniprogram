@@ -6,7 +6,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#1F2847',
-    navigationBarTitleText: '红领巾',
+    navigationBarTitleText: '丰慧大脑',
     navigationBarTextStyle: 'white'
   },
   tabBar: {
