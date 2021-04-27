@@ -5,9 +5,9 @@ export default {
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: '邮小程学生成长指南',
-    navigationBarTextStyle: 'black'
+    navigationBarBackgroundColor: '#1F2847',
+    navigationBarTitleText: '红领巾',
+    navigationBarTextStyle: 'white'
   },
   tabBar: {
     list: [{
@@ -21,9 +21,9 @@ export default {
       pagePath: 'pages/my/index',
       text: '我的'
     }],
-    'color': '#000',
+    'color': '#fff',
     'selectedColor': '#56abe4',
-    'backgroundColor': '#fff',
-    'borderStyle': 'white'
+    'backgroundColor': '#1F2847',
+    'borderStyle': 'black'
   },
 }

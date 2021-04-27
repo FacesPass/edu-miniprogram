@@ -1,14 +1,19 @@
-import { View } from '@tarojs/components'
-import Taro, { FC, useReady } from '@tarojs/taro'
+import { View, Image } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import React, { memo, useEffect } from 'react'
 
-const My: FC = memo(() => {
+import './index.less'
+
+import chilun from '@/assets/icon/齿轮.png'
+
+const My = memo(() => {
 
   useEffect(() => {
-    handleLogin()
+    handleGetCode()
   })
 
-  const handleLogin = async () => {
+  /** 获取用户身份码 */
+  const handleGetCode = async () => {
     try {
       // const res = await Taro.login()
       // if (res.code) {
@@ -16,16 +21,19 @@ const My: FC = memo(() => {
       //   console.log(successRes)
       // }
 
-      const userRes = await Taro.getUserProfile({ desc: '获取信息提供更好体验' })
-      console.log(userRes)
+      const settingRes = await Taro.getSetting()
+      if (settingRes.authSetting['scope.userInfo']) {
+        const userRes = await Taro.getUserProfile({ desc: '获取信息提供更好体验' })
+        console.log(userRes)
+      }
     } catch (e) {
       console.log(e)
     }
   }
 
   return (
-    <View>
-
+    <View className="my-page">
+      <Image className="chilun" src={chilun} />
     </View>
   )
 })

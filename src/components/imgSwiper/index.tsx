@@ -39,7 +39,7 @@ const IndexSwiper: FC<SwiperProps> = memo(({
         items.map((item, index) => {
           return (
             <SwiperItem key={index} onClick={e => handleClick(item.url as string)}>
-              <Image className="swiper-img" src={item.imgUrl}></Image>
+              <Image mode="scaleToFill" className="swiper-img" src={item.imgUrl}></Image>
             </SwiperItem>
           )
         })

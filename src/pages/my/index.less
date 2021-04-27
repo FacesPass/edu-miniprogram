@@ -1,0 +1,27 @@
+@import '../../app.less';
+
+.my-page {
+  position: relative;
+  height: 100vh;
+  .main-bg();
+
+  .chilun {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 500px;
+    height: 500px;
+
+    animation: rotation infinite 10s linear;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
