@@ -1,0 +1,87 @@
+@import '../../app.less';
+
+.my-page {
+  position: relative;
+  height: 100vh;
+  .main-bg();
+
+  .user-info {
+    position: absolute;
+    left: 50%;
+    top: @gridHeight;
+    transform: translateX(-50%);
+
+    .avatar {
+      position: relative;
+      width: @gridWidth * 5;
+      height: @gridHeight * 5;
+      border: 1px solid #ccc;
+      border-radius: @border-circle;
+
+      image {
+        position: absolute;
+        width: @gridWidth * 4;
+        height: @gridHeight * 4;
+        .center-position()
+      }
+    }
+
+    .login-btn {
+      font-size: 28px;
+      width: @gridWidth * 5;
+      height: @gridHeight * 2;
+    }
+  }
+
+  .chilun {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 500px;
+    height: 500px;
+
+    animation: rotation infinite 10s linear;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .grid-position {
+    .purple-1 {
+      position: absolute;
+      left: @gridWidth * 4;
+      top: @gridHeight * 4;
+    }
+
+    .purple-3 {
+      position: absolute;
+      top: @gridHeight * 10;
+      right: @gridWidth * 5;
+    }
+
+    .green-2 {
+      position: absolute;
+      top: @gridHeight * 13;
+      left: @gridWidth * 7;
+    }
+
+    .green-1 {
+      position: absolute;
+      bottom: @gridHeight * 4;
+      left: @gridWidth * 4;
+    }
+
+    .total-2 {
+      position: absolute;
+      bottom: @gridHeight * 5;
+      right: @gridWidth * 4;
+    }
+  }
+}

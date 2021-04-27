@@ -4,7 +4,7 @@ import { FC } from '@tarojs/taro'
 import React, { memo } from 'react'
 
 import { SwiperProps } from './type'
-import './index.less'
+import './style.less'
 
 const IndexSwiper: FC<SwiperProps> = memo(({
   className,

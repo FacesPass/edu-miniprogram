@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components'
 
 import ImgSwiper from '../../components/imgSwiper'
 
-import './index.less'
+import './style.less'
 
 const Index = () => {
 
